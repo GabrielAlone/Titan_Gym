@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1{
+    color: red;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+}
+
+img{
+    width: 120px;
+    height: 120px;
+    margin: 10px auto;
+}
+
+.cadastro{
+  padding: 20px;
+  background-color: #000000;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(255, 0, 0, 0.279);
+  max-width: 600px;
+  height: 780px;
+  margin: 40px auto;
+  align-items: center;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;    
+}
+
+form{
+    color: white;
+    padding: 20px;
+    font-family: Arial;
+}
+
+button{
+    height: 35px;
+    width: 150px;
+    background-color: #ae0000;
+    color: aliceblue;
+    border: 0px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    gap: 10px;
+    font-family: Arial;
+     font-weight: bold; /* Deixa o texto em negrito */
+}
+
+button:hover{
+    width: 300px;
+    height: 40px;
+    background-color: #ff0000;
+    color: white;
+}
+
+input {
+    width: 500px;
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    margin: 10px auto;
+    display: block;
+    color: #000000;
+}
+
+input:focus {
+    outline: none; 
+    box-shadow: 0 0 18px red; /* Brilho vermelho direto e simples */
+}
+
+input#confirmar {
+    cursor: pointer;
+    width: 20px;          
+    height: 20px;         
+    accent-color: red;    
+    display: inline-block; 
+    vertical-align: middle;
+    margin: 10px 0;
+}
+
+label{
+    padding: 10px;
+    gap: 5px;
+}
+
+body{
+    background-image: url(imagens/Fundo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
