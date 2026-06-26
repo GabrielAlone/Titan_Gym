@@ -1,144 +1,348 @@
-
-*{
+/* ==========================================================================
+   CONFIGURAÇÕES GERAIS
+   ========================================================================== */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-body{
-    background-image: url("imagens/img.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #111111;
     color: white;
-    padding: 5px;
-    position: relative;
+    overflow-x: hidden;
 }
 
-/* overlay escuro para dar visibilidade */
-body::before{
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.65);
-    z-index: -1;
-}
-
-header{
-    background-color: #000;
+/* ==========================================================================
+   HEADER / NAVEGAÇÃO
+   ========================================================================== */
+header {
+    background-color: rgba(0, 0, 0, 0.95);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 8%;
+    padding: 15px 8%;
     border-bottom: 3px solid #f10000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
-header img{
-    height: 55px;
+header img {
+    height: 50px;
+    object-fit: contain;
 }
 
-nav ul{
+nav ul {
     list-style: none;
     display: flex;
-    gap: 15px;
+    align-items: center;
+    gap: 20px;
 }
 
-nav ul li a{
+nav ul li a {
     text-decoration: none;
-    color: white;
+    color: #e0e0e0;
     font-size: 14px;
-    transition: 0.3s;
+    font-weight: bold;
+    transition: 0.3s ease;
 }
 
-nav ul li a:hover{
+nav ul li a:hover {
     color: #f10000;
 }
 
-.banner{
-    position: relative;
-    width: 100%;
-    height: 450px;
-    overflow: hidden;
+/* Link especial da loja para destacar no menu */
+.destaque-loja {
+    background-color: #f10000;
+    padding: 6px 15px;
+    border-radius: 20px;
+    color: white !important;
 }
 
-.slide{
+.destaque-loja:hover {
+    background-color: white !important;
+    color: #000 !important;
+}
+
+/* ==========================================================================
+   BANNER ROTATIVO (SLIDESHOW)
+   ========================================================================== */
+.banner {
+    position: relative;
+    width: 100%;
+    height: 550px;
+    overflow: hidden;
+    margin-top: 80px; /* Compensa a altura do header fixo */
+}
+
+.slide {
     position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
     opacity: 0;
-    transition: opacity 1s;
+    transition: opacity 1s ease-in-out;
 }
 
-.slide.ativo{
-    opacity: 1;
+.slide.ativo {
+    opacity: 0.4; /* Deixa a imagem sutil no fundo */
 }
 
-section{
+.overlay-banner {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(transparent, #111111);
+}
+
+/* ==========================================================================
+   SEÇÕES GERAIS
+   ========================================================================== */
+section {
     padding: 80px 10%;
     text-align: center;
 }
 
-section h2{
+section h2 {
     color: #ffffff;
     font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-p{
-    color: #ffffff;
-}
-
-a{
-    text-decoration: none;
-}
-
-/* botões */
-#inicio a,
-#planos a{
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
     display: inline-block;
-    margin-top: 20px;
-    background-color: #000000;
+}
+
+/* Linha vermelha charmosa abaixo de cada título principal */
+section h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #f10000;
+    margin: 10px auto 0 auto;
+    border-radius: 2px;
+}
+
+/* ==========================================================================
+   SEÇÃO INÍCIO
+   ========================================================================== */
+#inicio {
+    background: linear-gradient(180deg, #111 0%, #1a1a1a 100%);
+    padding-top: 40px;
+}
+
+.inicio-conteudo {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.inicio-conteudo p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+.btn-principal {
+    display: inline-block;
+    background-color: #f10000;
     color: white;
-    padding: 12px 30px;
-    border-radius: 8px;
+    padding: 15px 40px;
+    border-radius: 30px;
     font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
     transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(241, 0, 0, 0.4);
 }
 
-#inicio a:hover,
-#planos a:hover{
-    background-color: #bc0000;
-    transform: scale(1.05);
+.btn-principal:hover {
+    background-color: white;
+    color: black;
+    transform: translateY(-3px);
 }
 
-/* PLANOS EM COLUNA */
-#planos{
+/* ==========================================================================
+   SEÇÃO DE PLANOS (LADO A LADO)
+   ========================================================================== */
+#planos {
+    background-color: #111111;
+}
+
+.container-planos {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch; /* Deixa todos os cards com a mesma altura */
+    gap: 30px;
+    flex-wrap: wrap; /* Quebra linha perfeitamente no celular */
+    margin-top: 20px;
+}
+
+.plano {
+    background-color: #1a1a1a;
+    padding: 35px 25px;
+    border-radius: 15px;
+    border: 1px solid #333;
+    width: 300px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
+    transition: 0.3s ease;
+    position: relative;
 }
 
-#planos div{
-    background-color: rgba(0, 0, 0, 0.75);
-    padding: 25px;
-    margin: 20px 0;
-    border-radius: 15px;
-    border: 2px solid #ffffff;
-    width: 280px;
-    display: block;
+.plano:hover {
+    transform: translateY(-10px);
+    border-color: #f10000;
+    box-shadow: 0 10px 25px rgba(241, 0, 0, 0.15);
 }
 
-#planos h3{
+.plano h3 {
     color: #ffffff;
+    font-size: 1.4rem;
     margin-bottom: 15px;
 }
 
-#contato p{
-    margin: 10px 0;
+.plano .preco {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #f10000;
+    margin-bottom: 25px;
+}
+
+.plano .preco span {
+    font-size: 1rem;
+    color: #888;
+}
+
+.plano ul {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.plano ul li {
+    font-size: 14px;
+    color: #ddd;
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 20px;
+}
+
+/* Pequeno traço vermelho simulando um checkmark na lista dos planos */
+.plano ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #f10000;
+    font-weight: bold;
+}
+
+.plano a {
+    display: block;
+    background-color: #222;
+    color: white;
+    padding: 12px 0;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.plano a:hover {
+    background-color: #f10000;
+}
+
+/* CARD DE DESTAQUE (Plano Ouro) */
+.plano.destaque {
+    border: 2px solid #f10000;
+    background-color: #222222;
+    transform: scale(1.05);
+}
+
+.plano.destaque a {
+    background-color: #f10000;
+}
+
+.plano.destaque a:hover {
+    background-color: white;
+    color: black;
+}
+
+.badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f10000;
+    color: white;
+    padding: 4px 15px;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   SEÇÕES SOBRE E CONTATO
+   ========================================================================== */
+#sobre {
+    background: linear-gradient(180deg, #111 0%, #1a1a1a 100%);
+}
+
+.container-texto {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #ccc;
+}
+
+#contato {
+    background-color: #111;
+}
+
+.contato-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.card-info {
+    background-color: #1a1a1a;
+    padding: 20px 30px;
+    border-radius: 10px;
+    border-bottom: 3px solid #f10000;
+    min-width: 280px;
+}
+
+.card-info strong {
+    color: #f10000;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.card-info p {
+    color: #fff;
+    font-size: 15px;
 }

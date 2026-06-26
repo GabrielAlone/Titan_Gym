@@ -1,47 +1,19 @@
-const usuario = JSON.parse(
-    localStorage.getItem("usuario")
-);
+document.addEventListener("DOMContentLoaded", () => {
+    // Seleciona todos os links de assinar dentro da seção de planos
+    const botoesAssinar = document.querySelectorAll("#planos .plano a");
 
-if (usuario == null) {
+    botoesAssinar.forEach(botao => {
+        botao.addEventListener("click", (evento) => {
+            evento.preventDefault(); 
 
-    window.location.href = "login.html";
+            // Pega o container do plano atual para descobrir o nome dele
+            const containerPlano = botao.closest(".plano");
+            const nomePlano = containerPlano.querySelector("h3").textContent.trim();
 
-}
-
-const texto = document.getElementById(
-    "usuarioLogado"
-);
-
-texto.innerHTML = "Olá, " + usuario.nome + "!";
-
-const sair = document.getElementById("sair");
-
-sair.addEventListener("click", logout);
-
-function logout() {
-
-    localStorage.removeItem("usuario");
-
-    window.location.href = "login.html";
-
-}
-
-const slides = document.querySelectorAll(".slide");
-
-let indice = 0;
-
-setInterval(() => {
-
-    slides[indice].classList.remove("ativo");
-
-    indice++;
-
-    if (indice >= slides.length) {
-
-        indice = 0;
-
-    }
-
-    slides[indice].classList.add("ativo");
-
-}, 4000);
+            // Exibe a mensagem de sucesso
+            alert(`Parabéns! ${nomePlano} assinado com sucesso. Bem-vindo à Titan Gym!`);
+            
+            window.location.hash = "contato";
+        });
+    });
+});

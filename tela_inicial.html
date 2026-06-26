@@ -2,93 +2,104 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Titan GYM - Home</title>
     <link rel="stylesheet" href="tela_inicial.css">
 </head>
 <body>
 
 <header>
-
-    
-    <img src="imagens/Logo.png">
-<nav>
-    <ul>
-        <li><a href="#inicio">Início</a></li>
-        <li><a href="#planos">Planos</a></li>
-        <li><a href="#sobre">Sobre Nós</a></li>
-        <li><a href="#contato">Contato</a></li>
-        <li><a href="Loja da Academia/loja.html">Loja</a></li>
-        <li><a href="#sair">Sair</a></li>
-    </ul>
-</nav>
-
-
+    <img src="imagens/Logo.png" alt="Titan Gym Logo">
+    <nav>
+        <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#planos">Planos</a></li>
+            <li><a href="#sobre">Sobre Nós</a></li>
+            <li><a href="#contato">Contato</a></li>
+            <li><a href="Loja da Academia/loja.html" class="destaque-loja">Loja</a></li>
+            <li><a href="#sair">Sair</a></li>
+        </ul>
+    </nav>
 </header>
 
 <div class="banner">
-    <img src="imagens/Academia 2.jpg" class="slide ativo">
-    <img src="imagens/Academia 3.jpg" class="slide">
-    <img src="imagens/Academia titan.jpg" class="slide">
+    <img src="imagens/Academia 2.jpg" class="slide ativo" alt="Academia 1">
+    <img src="imagens/Academia 3.jpg" class="slide" alt="Academia 2">
+    <img src="imagens/Academia titan.jpg" class="slide" alt="Academia 3">
+    <div class="overlay-banner"></div>
 </div>
 
 <main>
 
 <section id="inicio">
-    <h2>VENHA VIRAR UM TITAN</h2>
-    <p>Chega de procrastinação! Só aqui temos os melhores equipamentos e profissionais. Faça uma aula experimental gratuita hoje mesmo!</p>
-    <a href="#contato">Quero Começar</a>
+    <div class="inicio-conteudo">
+        <h2>VENHA VIRAR UM TITAN</h2>
+        <p>Chega de procrastinação! Só aqui temos os melhores equipamentos e profissionais da região. Faça uma aula experimental gratuita hoje mesmo e mude seu estilo de vida.</p>
+        <a href="#contato" class="btn-principal">Quero Começar</a>
+    </div>
 </section>
 
 <section id="planos">
     <h2>Conheça Nossos Planos</h2>
+    
+    <div class="container-planos">
+        <div class="plano">
+            <h3>Plano Prata</h3>
+            <div class="preco">R$ 99,90<span>/mês</span></div>
+            <ul>
+                <li>Acesso total à musculação</li>
+                <li>Área de cardio equipada</li>
+                <li>Horário livre de utilização</li>
+            </ul>
+            <a href="#contato">Assinar</a>
+        </div>
 
-    <div class="plano" id="div-plano">
-        <h3>Plano Prata</h3>
-        <ul>
-            Acesso à musculação<br>
-            Área de cardio<br>
-            Área de cardio<br>
-            Horário livre de utilização
-        </ul>
-        <p><strong>R$ 99,90/mês</strong></p>
-        <a href="#contato">Assinar</a>
+        <div class="plano destaque">
+            <div class="badge">Mais Vendido</div>
+            <h3>Plano Ouro</h3>
+            <div class="preco">R$ 169,90<span>/mês</span></div>
+            <ul>
+                <li>Tudo do Plano Prata</li>
+                <li>Avaliação física trimestral</li>
+                <li>Ficha de treino personalizada</li>
+                <li>Suporte total dos instrutores</li>
+            </ul>
+            <a href="#contato">Assinar</a>
+        </div>
+
+        <div class="plano">
+            <h3>Plano Titã Premium</h3>
+            <div class="preco">R$ 199,90<span>/mês</span></div>
+            <ul>
+                <li>Tudo do Plano Ouro</li>
+                <li>Reavaliação física mensal</li>
+                <li>Treino personalizado exclusivo</li>
+                <li>Benefícios e mimos exclusivos</li>
+            </ul>
+            <a href="#contato">Assinar</a>
+        </div>
     </div>
-
-    <div class="plano">
-        <h3>Plano Ouro</h3>
-        <p>
-            Tudo do Plano Prata<br>
-            Avaliação física trimestral<br>
-            Ficha de treino personalizada<br>
-            Suporte dos instrutores
-        </p>
-        <p><strong>R$ 169,90/mês</strong></p>
-        <a href="#contato">Assinar</a>
-    </div>
-
-    <div class="plano">
-        <h3>Plano Titã Premium</h3>
-        <p>
-            Tudo do Plano Ouro<br>
-            Reavaliação física mensal<br>
-            Treino personalizado<br>
-            Benefícios exclusivos
-        </p>
-        <p><strong>R$ 199,90/mês</strong></p>
-        <a href="#contato">Assinar</a>
-    </div>
-
 </section>
 
 <section id="sobre">
-    <h2>Nossa Academia</h2>
-    <p>Espaço amplo, climatizado e com acompanhamento de instrutores qualificados para garantir o seu melhor treino.</p>
+    <div class="container-texto">
+        <h2>Nossa Academia</h2>
+        <p>A Titan Gym oferece um espaço amplo, totalmente climatizado, com vestiários completos e equipamentos de última geração. Contamos com o acompanhamento minucioso de profissionais altamente qualificados para garantir que você atinja seus objetivos com segurança e alta performance.</p>
+    </div>
 </section>
 
 <section id="contato">
     <h2>Entre em Contato</h2>
-    <p>Fale conosco pelo WhatsApp: (11) 98936-3911</p>
-    <p>Visite-nos: Av.Paulista, 523 São Paulo, SP</p>
+    <div class="contato-cards">
+        <div class="card-info">
+            <strong>WhatsApp:</strong>
+            <p>(11) 98936-3911</p>
+        </div>
+        <div class="card-info">
+            <strong>Visite-nos:</strong>
+            <p>Av. Paulista, 523 - São Paulo, SP</p>
+        </div>
+    </div>
 </section>
 
 </main>
