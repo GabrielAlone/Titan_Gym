@@ -1,29 +1,46 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Carrinho</title>
-    <link rel="stylesheet" href="item_selecionado.css">
+    <title>Seu Carrinho - Titan Gym</title>
+    <link rel="stylesheet" href="carrinho.css"> 
 </head>
 <body>
 
-<header>
-    <img src="../imagens/logo.png" alt="Logo">
-</header>
+    <header>
+        <img src="../imagens/logo.png" alt="Titan Gym Logo"> 
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="#">Planos</a></li>
+                <li><a href="#">Sobre Nós</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<main>
-
-    <h1>Seu Carrinho</h1>
-
+    <main class="container-carrinho">
+        <h1>Seu Carrinho</h1>
+        
+<div class="caixa-carrinho">
+    <h2>Seu Carrinho</h2>
+    
     <div id="lista-carrinho"></div>
+    
+    <div id="total" style="font-weight: bold; text-align: right; margin: 20px 0; font-size: 1.2em;">
+        Total: R$ 0,00
+    </div>
 
-    <h2 id="total">Total: R$ 0,00</h2>
-
-    <button id="limpar">Limpar Carrinho</button>
-
-</main>
+    <div class="botoes-carrinho">
+        <a href="loja.html" class="btn">Voltar para a Loja</a>
+        <button id="limpar">Limpar Carrinho</button>
+        <button id="comprar">Finalizar Compra</button>
+    </div>
+</div>
 
 <script src="js/carrinho.js"></script>
 
+    
+    <script src="carrinho.js"></script>
 </body>
 </html>

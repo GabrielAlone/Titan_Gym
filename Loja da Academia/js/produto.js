@@ -1,31 +1,64 @@
-const botao = document.querySelector(".comprar");
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Tenta achar o botão pela classe .comprar ou tag button
+    let botao = document.querySelector(".comprar");
 
-if (botao) {
-    botao.addEventListener("click", () => {
+    if (!botao) {
+        const botoes = document.querySelectorAll("button");
+        botoes.forEach(btn => {
+            if (btn.textContent.trim().toLowerCase() === "comprar") {
+                botao = btn;
+            }
+        });
+    }
 
-        const nome = document.querySelector("h1").textContent;
+    if (botao) {
+        botao.addEventListener("click", () => {
+            const h1El = document.querySelector("h1");
+            
+            // BUSCA MELHORADA: Procura o preço no container principal do item, ignorando a tabela
+            // Vamos tentar pegar o strong que contém "R$" para evitar pegar o strong da tabela
+            let precoTexto = "";
+            const itensStrong = document.querySelectorAll(".item_loja strong, .item_loja p");
+            
+            itensStrong.forEach(el => {
+                if (el.textContent.includes("R$")) {
+                    precoTexto = el.textContent;
+                }
+            });
 
-        const precoTexto = document.querySelector("strong").textContent;
+            if (!h1El || !precoTexto) {
+                alert("Erro: Nome ou preço do produto não encontrados na página.");
+                return;
+            }
 
-        const preco = parseFloat(
-            precoTexto
-                .replace("R$", "")
-                .replace(".", "")
-                .replace(",", ".")
-                .trim()
-        );
+            const nome = h1El.textContent.trim();
 
-        const item = {
-            nome: nome,
-            preco: preco
-        };
+            // Limpa o preço removendo R$, pontos e ajustando a vírgula
+            const precoLimpo = precoTexto.replace("R$", "").replace(/\./g, "").replace(",", ".").trim();
+            const preco = parseFloat(precoLimpo);
 
-        let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+            if (isNaN(preco)) {
+                alert("Erro ao ler o preço do produto.");
+                return;
+            }
 
-        carrinho.push(item);
+            const item = {
+                nome: nome,
+                preco: preco
+            };
 
-        localStorage.setItem("carrinho", JSON.stringify(carrinho));
+            // Salva no LocalStorage
+            let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+            carrinho.push(item);
+            localStorage.setItem("carrinho", JSON.stringify(carrinho));
 
-        window.location.href = "carrinho.html";
-    });
-}
+            // Alerta confirmando a ação
+            alert(nome + " adicionado ao carrinho!");
+
+            // Redireciona para a página do carrinho
+            window.location.href = "carrinho.html";
+        });
+    } else {
+        console.log("Aviso do Sistema: O botão de comprar não foi detectado nesta página.");
+    }
+});

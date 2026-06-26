@@ -1,0 +1,192 @@
+/* ==========================================================================
+   ESTILIZAÇÃO GERAL E HEADER (TITAN GYM)
+   ========================================================================== */
+
+body {
+    background-color: rgb(34, 34, 34); /* Fundo escuro igual ao resto do site */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #000;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 8%;
+    border-bottom: 3px solid #f10000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box; 
+    z-index: 1000;
+}
+
+header img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain; 
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff0000;
+}
+
+/* ==========================================================================
+   CONTAINER DO SEU CARRINHO (ESTILO DO CARD)
+   ========================================================================== */
+
+/* Aqui aplicamos o estilo diretamente na caixinha branca do seu HTML */
+.caixa-carrinho, [class*="caixa"] {
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(255, 0, 0, 0.25);
+    max-width: 800px; 
+    width: 90%;
+    margin: 140px auto 40px auto; /* Empurra o card para baixo do header */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-sizing: border-box;
+}
+
+/* Título interno "Seu Carrinho" */
+.caixa-carrinho h2, .caixa-carrinho h1 {
+    color: red;
+    font-size: 28px;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #ae0000;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+/* ==========================================================================
+   ITENS GERADOS PELO JAVASCRIPT
+   ========================================================================== */
+
+/* Alinha o container onde os itens são injetados */
+#lista-carrinho {
+    margin-bottom: 20px;
+}
+
+/* Alveja o texto de carrinho vazio inserido pelo JS */
+#lista-carrinho p {
+    color: #666 !important;
+    font-style: italic;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 16px;
+}
+
+/* Alveja as divs dos produtos criadas dinamicamente pelo JS */
+#lista-carrinho > div {
+    padding: 15px 10px !important;
+    border-bottom: 1px solid #ddd !important;
+    transition: background-color 0.2s;
+}
+
+#lista-carrinho > div:hover {
+    background-color: #f9f9f9 !important;
+}
+
+/* Força os textos internos dos itens a seguirem o padrão visual antigo */
+#lista-carrinho > div span:first-child {
+    font-size: 18px !important;
+    font-weight: bold !important;
+    color: #222 !important;
+}
+
+#lista-carrinho > div span:last-child {
+    color: #ff0000 !important;
+    font-weight: bold !important;
+    font-size: 16px !important;
+}
+
+/* ==========================================================================
+   ÁREA DO TOTAL E BOTÕES DE AÇÃO
+   ========================================================================== */
+
+/* Estiliza o elemento do preço total */
+#total {
+    text-align: right;
+    color: #222;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 25px 0;
+}
+
+/* Alinha a área onde ficam os botões no HTML */
+.botoes-carrinho, [class*="botoes"] {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* Base de estilo idêntica para links e botões */
+.botoes-carrinho a,
+.botoes-carrinho button {
+    height: 45px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 8px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.2s, transform 0.2s;
+    box-sizing: border-box;
+}
+
+/* Botão de Finalizar Compra (ID do JS) */
+#comprar {
+    background-color: #ae0000;
+    color: #fff;
+    min-width: 160px;
+}
+
+#comprar:hover {
+    background-color: #ff0000;
+    transform: scale(1.05);
+}
+
+/* Botão de Limpar Carrinho (ID do JS) */
+#limpar {
+    background-color: #333;
+    color: #fff;
+}
+
+#limpar:hover {
+    background-color: #555;
+}
+
+/* Link/Botão de Voltar para a Loja */
+.botoes-carrinho a {
+    background-color: #e0e0e0;
+    color: #333 !important;
+}
+
+.botoes-carrinho a:hover {
+    background-color: #ccc;
+}
