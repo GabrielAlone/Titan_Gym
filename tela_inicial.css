@@ -1,0 +1,144 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+    background-image: url("imagens/img.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    padding: 5px;
+    position: relative;
+}
+
+/* overlay escuro para dar visibilidade */
+body::before{
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.65);
+    z-index: -1;
+}
+
+header{
+    background-color: #000;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 8%;
+    border-bottom: 3px solid #f10000;
+}
+
+header img{
+    height: 55px;
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover{
+    color: #f10000;
+}
+
+.banner{
+    position: relative;
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+}
+
+.slide{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.slide.ativo{
+    opacity: 1;
+}
+
+section{
+    padding: 80px 10%;
+    text-align: center;
+}
+
+section h2{
+    color: #ffffff;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+p{
+    color: #ffffff;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* botões */
+#inicio a,
+#planos a{
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #000000;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#inicio a:hover,
+#planos a:hover{
+    background-color: #bc0000;
+    transform: scale(1.05);
+}
+
+/* PLANOS EM COLUNA */
+#planos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#planos div{
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 25px;
+    margin: 20px 0;
+    border-radius: 15px;
+    border: 2px solid #ffffff;
+    width: 280px;
+    display: block;
+}
+
+#planos h3{
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+#contato p{
+    margin: 10px 0;
+}

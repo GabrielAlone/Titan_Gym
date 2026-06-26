@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Titan GYM - Home</title>
+    <link rel="stylesheet" href="tela_inicial.css">
+</head>
+<body>
+
+<header>
+    <img src="imagens/Logo.png">
+    <nav>
+        <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#planos">Planos</a></li>
+            <li><a href="#sobre">Sobre Nós</a></li>
+            <li><a href="#contato">Contato</a></li>
+             <li><a href="#loja">Loja</a></li>
+              <li><a href="#sair">Sair</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="banner">
+    <img src="imagens/Academia 2.jpg" class="slide ativo">
+    <img src="imagens/Academia 3.jpg" class="slide">
+    <img src="imagens/Academia titan.jpg" class="slide">
+</div>
+
+<main>
+
+<section id="inicio">
+    <h2>VENHA VIRAR UM TITAN</h2>
+    <p>Chega de procrastinação! Só aqui temos os melhores equipamentos e profissionais. Faça uma aula experimental gratuita hoje mesmo!</p>
+    <a href="#contato">Quero Começar</a>
+</section>
+
+<section id="planos">
+    <h2>Conheça Nossos Planos</h2>
+
+    <div class="plano" id="div-plano">
+        <h3>Plano Prata</h3>
+        <ul>
+            Acesso à musculação<br>
+            Área de cardio<br>
+            Área de cardio<br>
+            Horário livre de utilização
+        </ul>
+        <p><strong>R$ 99,90/mês</strong></p>
+        <a href="#contato">Assinar</a>
+    </div>
+
+    <div class="plano">
+        <h3>Plano Ouro</h3>
+        <p>
+            Tudo do Plano Prata<br>
+            Avaliação física trimestral<br>
+            Ficha de treino personalizada<br>
+            Suporte dos instrutores
+        </p>
+        <p><strong>R$ 169,90/mês</strong></p>
+        <a href="#contato">Assinar</a>
+    </div>
+
+    <div class="plano">
+        <h3>Plano Titã Premium</h3>
+        <p>
+            Tudo do Plano Ouro<br>
+            Reavaliação física mensal<br>
+            Treino personalizado<br>
+            Benefícios exclusivos
+        </p>
+        <p><strong>R$ 199,90/mês</strong></p>
+        <a href="#contato">Assinar</a>
+    </div>
+
+</section>
+
+<section id="sobre">
+    <h2>Nossa Academia</h2>
+    <p>Espaço amplo, climatizado e com acompanhamento de instrutores qualificados para garantir o seu melhor treino.</p>
+</section>
+
+<section id="contato">
+    <h2>Entre em Contato</h2>
+    <p>Fale conosco pelo WhatsApp: (11) 98936-3911</p>
+    <p>Visite-nos: Av.Paulista, 523 São Paulo, SP</p>
+</section>
+
+</main>
+
+<script>
+let index = 0;
+const slides = document.querySelectorAll(".slide");
+
+setInterval(() => {
+    slides[index].classList.remove("ativo");
+    index = (index + 1) % slides.length;
+    slides[index].classList.add("ativo");
+}, 3000);
+</script>
+
+</body>
+</html>
